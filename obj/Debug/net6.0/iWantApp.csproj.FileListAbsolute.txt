@@ -10,6 +10,7 @@ C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Dapper.dll
 C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Flunt.dll
 C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Nicolas\source\iWantApp\src\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
