@@ -1,6 +1,7 @@
 ﻿using iWantApp.Domain.Products;
 using iWantApp.Infra.Data;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace iWantApp.Endpoints.Categories;
 
@@ -11,10 +12,10 @@ public class CategoryPost
     public static Delegate Handle => Action;
 
     [Authorize]
-    public static IResult Action(CategoryRequest categoryRequest, ApplicationDbContext context)
+    public static IResult Action(CategoryRequest categoryRequest, HttpContext http, ApplicationDbContext context)
     {
-
-        var category = new Category(categoryRequest.Name, "Teste", "Teste");
+       var userId = http.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+        var category = new Category(categoryRequest.Name, userId, userId);
 
         if (!category.IsValid)
         {
