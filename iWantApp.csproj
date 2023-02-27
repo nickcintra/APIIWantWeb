@@ -7,14 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Using Include="Flunt.Notifications"/>  
-    <Using Include="Microsoft.AspNetCore.Identity"/>  
-    <Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore"/>
-    <Using Include="Microsoft.EntityFrameworkCore"/>
-    <Using Include="Microsoft.AspNetCore.Authorization"/>
+    <Using Include="Flunt.Notifications" />  
+    <Using Include="Microsoft.AspNetCore.Identity" />  
+    <Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <Using Include="Microsoft.EntityFrameworkCore" />
+    <Using Include="Microsoft.AspNetCore.Authorization" />
     
-    <Using Include="iWantApp.Domain.Products"/>  
-    <Using Include="iWantApp.Infra.Data"/>  
+    <Using Include="iWantApp.Domain.Products" />  
+    <Using Include="iWantApp.Infra.Data" />  
   </ItemGroup>
   
   <ItemGroup>
@@ -28,6 +28,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
