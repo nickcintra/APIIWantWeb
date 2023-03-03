@@ -1,18 +1,16 @@
+using iWantApp.Domain.Users;
 using iWantApp.Endpoints.Categories;
+using iWantApp.Endpoints.Clients;
 using iWantApp.Endpoints.Employees;
 using iWantApp.Endpoints.Products;
 using iWantApp.Endpoints.Security;
-using iWantApp.Infra.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
 using System.Text;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseSerilog((context, configuration) =>
@@ -72,6 +70,7 @@ builder.Services.AddAuthentication(x =>
 });
 
 builder.Services.AddScoped<QueryAllUsersWithClaimName>();
+builder.Services.AddScoped<UserCreator>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -92,13 +91,14 @@ app.UseHttpsRedirection();
 
 app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
-app.MapMethods(ProductGetAllShowCase.Template, ProductGetAllShowCase.Methods, ProductGetAllShowCase.Handle);
 app.MapMethods(CategoryPost.Template, CategoryPost.Methods, CategoryPost.Handle);
 app.MapMethods(CategoryGetAll.Template, CategoryGetAll.Methods, CategoryGetAll.Handle);
 app.MapMethods(CategoryPut.Template, CategoryPut.Methods, CategoryPut.Handle);
 app.MapMethods(EmployeePost.Template, EmployeePost.Methods, EmployeePost.Handle);
 app.MapMethods(EmployeeGetAll.Template, EmployeeGetAll.Methods, EmployeeGetAll.Handle);
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
+app.MapMethods(ProductGetAllShowCase.Template, ProductGetAllShowCase.Methods, ProductGetAllShowCase.Handle);
+app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 
 app.UseExceptionHandler("/error");
 app.Map("/error", (HttpContext http) =>
