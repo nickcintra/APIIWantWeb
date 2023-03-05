@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicolas\\source\\iWantApp\\src\\iWantApp.csproj": {}
+    "C:\\Users\\Nicolas\\source\\IWantApp\\src\\iWantApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicolas\\source\\iWantApp\\src\\iWantApp.csproj": {
+    "C:\\Users\\Nicolas\\source\\IWantApp\\src\\iWantApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicolas\\source\\iWantApp\\src\\iWantApp.csproj",
+        "projectUniqueName": "C:\\Users\\Nicolas\\source\\IWantApp\\src\\iWantApp.csproj",
         "projectName": "iWantApp",
-        "projectPath": "C:\\Users\\Nicolas\\source\\iWantApp\\src\\iWantApp.csproj",
+        "projectPath": "C:\\Users\\Nicolas\\source\\IWantApp\\src\\iWantApp.csproj",
         "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicolas\\source\\iWantApp\\src\\obj\\",
+        "outputPath": "C:\\Users\\Nicolas\\source\\IWantApp\\src\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
