@@ -12,7 +12,7 @@ using iWantApp.Infra.Data;
 namespace iWantApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230305005745_AddTableOrder")]
+    [Migration("20230306013939_AddTableOrder")]
     partial class AddTableOrder
     {
         /// <inheritdoc />

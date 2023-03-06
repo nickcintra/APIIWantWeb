@@ -11,7 +11,7 @@ public class Order : Entity
 
     private Order() { }
 
-    public Order(string clientId, string clientName, List<Product> products, decimal total, string deliveryAddress)
+    public Order(string clientId, string clientName, List<Product> products, string deliveryAddress)
     {
         ClientId = clientId;
         Products = products;
@@ -34,7 +34,8 @@ public class Order : Entity
     {
         var contract = new Contract<Order>()
             .IsNotNull(ClientId, "Client")
-            .IsNotNull(Products, "Products");
+            .IsTrue(Products != null && Products.Any(), "Products")
+            .IsNotNullOrEmpty(DeliveryAddress, "DeliveryAddress");
         AddNotifications(contract);
     }
 }

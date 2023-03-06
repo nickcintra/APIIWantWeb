@@ -2,6 +2,7 @@ using iWantApp.Domain.Users;
 using iWantApp.Endpoints.Categories;
 using iWantApp.Endpoints.Clients;
 using iWantApp.Endpoints.Employees;
+using iWantApp.Endpoints.Orders;
 using iWantApp.Endpoints.Products;
 using iWantApp.Endpoints.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -45,9 +46,9 @@ builder.Services.AddAuthorization(options =>
     .RequireAuthenticatedUser()
     .Build();
     options.AddPolicy("EmployeePolicy", p =>
-    p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
-    options.AddPolicy("Employee005Policy", p =>
-    p.RequireAuthenticatedUser().RequireClaim("EmployeeCode", "005"));
+        p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
+    options.AddPolicy("CpfPolicy", p =>
+        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
 });
 builder.Services.AddAuthentication(x =>
 {
@@ -100,6 +101,8 @@ app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
 app.MapMethods(ProductGetAllShowCase.Template, ProductGetAllShowCase.Methods, ProductGetAllShowCase.Handle);
 app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
+app.MapMethods(OrderPost.Template, OrderPost.Methods, OrderPost.Handle);
+
 
 app.UseExceptionHandler("/error");
 app.Map("/error", (HttpContext http) =>
