@@ -14,7 +14,7 @@ public class TokenPost
     public static Delegate Handle => Action;
 
     [AllowAnonymous]
-    public static IResult Action(
+    public static async Task<IResult> Action(
         LoginRequest loginRequest,
         IConfiguration configuration,
         UserManager<IdentityUser> userManager,
@@ -22,16 +22,14 @@ public class TokenPost
         IWebHostEnvironment environment)
     {
         log.LogInformation("Getting token");
-        log.LogWarning("Warning");
-        log.LogError("Error");
 
-        var user = userManager.FindByEmailAsync(loginRequest.Email).Result;
+        var user = await userManager.FindByEmailAsync(loginRequest.Email);
         if (user == null)
             Results.BadRequest();
-        if (!userManager.CheckPasswordAsync(user, loginRequest.Password).Result)
+        if (!await userManager.CheckPasswordAsync(user, loginRequest.Password))
             Results.BadRequest();
 
-        var claims = userManager.GetClaimsAsync(user).Result;
+        var claims = await userManager.GetClaimsAsync(user);
         var subject = new ClaimsIdentity(new Claim[]
         {
              new Claim(ClaimTypes.Email, loginRequest.Email),
