@@ -72,6 +72,7 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddScoped<QueryAllUsersWithClaimName>();
 builder.Services.AddScoped<UserCreator>();
+builder.Services.AddScoped<QueryAllProductsSold>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -92,13 +93,14 @@ app.UseHttpsRedirection();
 
 app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
+app.MapMethods(ProductGetAllShowCase.Template, ProductGetAllShowCase.Methods, ProductGetAllShowCase.Handle);
+app.MapMethods(ProductSoldGet.Template, ProductSoldGet.Methods, ProductSoldGet.Handle);
 app.MapMethods(CategoryPost.Template, CategoryPost.Methods, CategoryPost.Handle);
 app.MapMethods(CategoryGetAll.Template, CategoryGetAll.Methods, CategoryGetAll.Handle);
 app.MapMethods(CategoryPut.Template, CategoryPut.Methods, CategoryPut.Handle);
 app.MapMethods(EmployeePost.Template, EmployeePost.Methods, EmployeePost.Handle);
 app.MapMethods(EmployeeGetAll.Template, EmployeeGetAll.Methods, EmployeeGetAll.Handle);
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
-app.MapMethods(ProductGetAllShowCase.Template, ProductGetAllShowCase.Methods, ProductGetAllShowCase.Handle);
 app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
 app.MapMethods(OrderPost.Template, OrderPost.Methods, OrderPost.Handle);
